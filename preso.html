@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+       
+      <article>
+        <h1>
+          Migrating Data Into AtoM
+        </h1>
+      </article>
+ 
+      <article>
+       <h3>
+          Steps in Migration Process
+        </h3>
+        <ol>
+          <li>
+            Data preparation
+          </li>
+          <li>
+            Data transformation
+          </li>
+          <li>
+            Data importing
+          </li>
+        </ol>
+      </article>
+
+      <article>
+       <h3>
+          Data preparation
+        </h3>
+        <br /><br />
+        <img class='centered' src='images/prepare.jpg'>
+      </article>
+
+      <article>
+       <h3>
+          Steps in data preparation
+        </h3>
+        <ol>
+          <li>
+            Convert data to CSV
+          </li>
+          <li>
+            Normalize data with Open Refine
+          </li>
+          <li>
+            Analyze data
+          </li>
+        </ol>
+      </article>
+
+      <article>
+       <h3>
+          Convert data to CSV
+        </h3>
+        <ul>
+          <li>
+            Custom scripts
+          </li>
+          <li>
+            Export utilities (phpMyAdmin, etc.)
+          </li>
+          <li>
+            Analyze data
+          </li>
+        </ul>
+      </article>
+
+      <article>
+       <h3>
+          Data transformation
+        </h3>
+        <ul>
+          <li>
+            De-facto 
+          </li>
+          <li>
+            "Flower" project provides monitoring
+          </li>
+          <li>
+            Flower provides most info with Rabbit MQ backend
+          </li>
+          <li>
+            Redis backend probably easier to deal with, multi-use
+          </li>
+        </ul>
+      </article>
+
+
+      <article>
+       <h3>
+          Django Channels
+        </h3>
+        <ul>
+          <li>
+            Really snazzy!
+          </li>
+          <li>
+            Provides Django/WebSocket integration
+          </li>
+          <li>
+            Can also be used for background tasks
+          </li>
+          <li>
+            Will be part of Django 1.10!
+          </li>
+          <li>
+            Support various backends (Redis best)
+          </li>
+          <li>
+            Could be used as a job server, but some gotchas
+          </li>
+        </ul>
+      </article>
+
+
+      <article>
+       <h3>
+          Django Channels gotchas
+        </h3>
+        <ul>
+          <li>
+            Message delivery not guaranteed
+          </li>
+          <li>
+            Failed messages won't be retried
+          </li>
+          <li>
+            Solvable in future?
+          </li>
+        </ul>
+      </article>
+
+
+      <article>
+       <h3>
+          Example: SWORD download
+        </h3>
+        <img class='centered' src='images/storage.png'>
+      </article>
+
+
+      <article>
+       <h3>
+          Trying out Django Channels
+        </h3>
+        <ul>
+          <li>
+            Jesús made Docker Compose that integrates Channels with Storage Service
+          </li>
+          <li>
+            Branch: <code>dev/django-channels-experiment</code>
+          </li>
+        </ul>
+      </article>
+
+
+<!--      <article>
+        <h3>
+          SWORD upload demo
+        </h3>
+        <ul>
+          <li>
+            Archivematica Store Service allows Archivematica transfers to be
+            created using "SWORD deposits"
+          </li>
+          <li>
+            SWORD protocol allows multiple files to be deposited to a server at once
+          </li>
+          <li>
+            Pretty much XML via REST
+          </li>
+        </ul>
+      </article>
+
+
+      <article>
+        <h3>
+          SWORD upload demo
+        </h3>
+        <ul>
+          <li>
+            A list of files can be provided to Storage Service's SWORD implementation as a METS document
+          </li>
+          <li>
+            Storage Service parses METS then downloads each file in the list in the background
+          </li>
+          <li>
+            We'll demo Django Channels upload of a single file using this method
+          </li>
+        </ul>
+      </article>
+-->
+
+    </section>
+
+  </body>
+</html>
